@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    width: 100%;
+}
+
+div.caixa {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border:solid 2px ;
+    width: 600px;
+    background-color: #dddddd;
+    border-radius: 5px;
+}
+
+div.topico {
+    display: flex;
+    background-color: #f4f4f4;
+    flex-wrap: wrap;
+}
+
+div.codigo {
+    width: 49%;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+div.explicação {
+    width: 49%;
+    border: solid 1px;
+    border-radius: 10px;
+    line-height: 1.7;
+}

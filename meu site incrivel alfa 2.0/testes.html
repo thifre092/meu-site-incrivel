@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diversão</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div#principal {
+            display: flex;
+            gap: 10px; /* Espaço entre os blocos */
+        }
+
+        div.bloco {
+            width: 30%;
+            padding: 10px; /* Adiciona espaço interno */
+            background-color: #f4f4f4; /* Cor de fundo leve */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+        }
+
+        div.central {
+            width: 40%;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        div.updates {
+            width: 30%;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: solid 1px #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        div > h3 {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .note-container {
+            margin-top: 10px;
+        }
+
+        .note {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .note button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border: none;
+            background: #eee;
+            cursor: pointer;
+        }
+
+        .note button.edit {
+            right: 40px;
+        }
+
+        .note button:hover {
+            background: #ddd;
+        }
+
+        .note button.delete {
+            color: red;
+        }
+
+        .note textarea {
+            width: calc(100% - 20px); /* Ajusta a largura para incluir padding e borda */
+            border: none;
+            background: transparent;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title"><a href="index.html">Diversão</a></h1>
+    <nav>
+        <a class="nava" href="memes.html">Memes</a>
+        <a class="nava" href="numeros.html">Números</a>
+        <a class="nava" href="python.html">Python</a>
+    </nav>
+    <h1>Bem vindo ao incrível site</h1>
+
+    <div id="principal">
+        <div class="bloco">
+            <h2>Notas</h2>
+            <textarea id="newNoteText" rows="4" placeholder="Digite sua nova nota aqui..."></textarea>
+            <button onclick="addNote()">Adicionar Nota</button>
+            <div id="noteContainer" class="note-container">
+                <!-- Notas serão adicionadas aqui -->
+            </div>
+        </div>
+        <div class="central">
+            <p>fjdsj</p>
+        </div>
+        <div class="updates">
+            <h3>Notas da atualização</h3>
+            <br>
+            <h4>Lançamento:</h4>
+            <ul>
+                <li>Criação do site</li>
+                <li>Criação das abas: Memes, Números e Python</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function addNote() {
+            const noteText = document.getElementById('newNoteText').value;
+            if (noteText.trim() === '') return;
+
+            const noteContainer = document.getElementById('noteContainer');
+            const note = document.createElement('div');
+            note.className = 'note';
+
+            note.innerHTML = `
+                <textarea readonly>${noteText}</textarea>
+                <button class="edit" onclick="editNote(this)">Editar</button>
+                <button class="delete" onclick="deleteNote(this)">Excluir</button>
+            `;
+
+            noteContainer.appendChild(note);
+            document.getElementById('newNoteText').value = '';
+        }
+
+        function editNote(button) {
+            const note = button.parentElement;
+            const textarea = note.querySelector('textarea');
+
+            if (button.textContent === 'Editar') {
+                textarea.removeAttribute('readonly');
+                button.textContent = 'Salvar';
+            } else {
+                textarea.setAttribute('readonly', '');
+                button.textContent = 'Editar';
+            }
+        }
+
+        function deleteNote(button) {
+            const note = button.parentElement;
+            note.remove();
+        }
+    </script>
+</body>
+</html>
