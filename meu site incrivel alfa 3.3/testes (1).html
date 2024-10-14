@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aba Expansível</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="toggle-btn" onclick="toggleAba()">Expandir Aba</button>
+
+    <div id="aba-expansivel" class="aba">
+        <p>Conteúdo da aba expansível. Você pode adicionar qualquer conteúdo aqui.</p>
+    </div>
+
+    <script>
+        function toggleAba() {
+    const aba = document.getElementById('aba-expansivel');
+    aba.classList.toggle('expansivel'); // Alterna a classe para expandir/ocultar a aba
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/* Estilo da aba oculta */
+.aba {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    transition: max-height 0.5s ease-out;
+    padding: 0 10px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo quando a aba está expandida */
+.aba.expansivel {
+    max-height: 200px; /* Define a altura máxima quando expandida */
+    padding: 10px;
+}
+
+/* Botão de ativação */
+.toggle-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.toggle-btn:hover {
+    background-color: #45a049;
+}
